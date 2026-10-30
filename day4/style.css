@@ -1,0 +1,152 @@
+
+:root {
+--background-color: #f4f6f9;
+--text-color: #333333;
+--card-color: #ffffff;
+--border-color: #cccccc;
+--primary-color: #3498db;
+--button-text: #ffffff;
+}
+
+body.dark {
+--background-color: #1e272e;
+--text-color: #f5f6fa;
+--card-color: #2f3640;
+--border-color: #57606f;
+--primary-color: #487eb0;
+--button-text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+body {
+font-family: Arial, sans-serif;
+background-color: var(--background-color);
+color: var(--text-color);
+line-height: 1.6;
+transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+text-align: center;
+background-color: var(--card-color);
+padding: 30px 20px;
+border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+margin-bottom: 8px;
+}
+
+main {
+max-width: 800px;
+margin: 40px auto;
+padding: 20px;
+}
+
+.notes-container {
+background-color: var(--card-color);
+padding: 25px;
+border-radius: 10px;
+border: 1px solid var(--border-color);
+}
+
+h2 {
+margin-bottom: 20px;
+}
+
+label {
+display: block;
+font-weight: bold;
+margin-bottom: 8px;
+}
+
+textarea {
+width: 100%;
+min-height: 200px;
+padding: 15px;
+font-family: Arial, sans-serif;
+font-size: 16px;
+color: var(--text-color);
+background-color: var(--background-color);
+border: 1px solid var(--border-color);
+border-radius: 6px;
+resize: vertical;
+}
+
+textarea:focus {
+outline: 2px solid var(--primary-color);
+}
+
+.counter-container {
+display: flex;
+justify-content: space-between;
+gap: 15px;
+margin-top: 12px;
+font-weight: bold;
+}
+
+.warning {
+color: orange;
+}
+
+.over {
+color: red;
+font-weight: bold;
+}
+
+.button-container {
+display: flex;
+gap: 15px;
+margin-top: 20px;
+}
+
+button {
+padding: 12px 20px;
+background-color: var(--primary-color);
+color: var(--button-text);
+border: none;
+border-radius: 6px;
+cursor: pointer;
+font-size: 15px;
+}
+
+button:hover {
+opacity: 0.85;
+}
+
+footer {
+text-align: center;
+padding: 20px;
+margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+main {
+margin: 15px auto;
+padding: 10px;
+}
+
+
+.notes-container {
+    padding: 18px;
+}
+
+.counter-container {
+    flex-direction: column;
+    gap: 5px;
+}
+
+.button-container {
+    flex-direction: column;
+}
+
+button {
+    width: 100%;
+}
+
+}
