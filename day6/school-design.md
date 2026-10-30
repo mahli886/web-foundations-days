@@ -21,16 +21,33 @@ The enrolments table acts as a join table connecting students and courses. It al
 
 ## 3. Index
 
-An index can be created on the course ID in the enrolments table:
+An index is created on the course ID in the enrolments table:
 
 `CREATE INDEX idx_enrolments_course_id ON enrolments(course_id);`
 
-This index helps the database find enrolments for a particular course faster and improves query performance.
+This index helps the database find enrolments for a particular course faster and improves query performance, especially when retrieving class lists.
 
-## 4. SQL or NoSQL?
+## 4. Foreign Key Deletion Rules
+
+The enrolments table uses foreign keys to connect students and courses.
+
+I recommend using **ON DELETE RESTRICT** for both foreign keys.
+
+* If a student has enrolment records, the database will prevent their deletion until those records are handled.
+* If a course has enrolment records, the database will prevent its deletion while those records exist.
+
+This approach protects academic history, including student grades, and prevents accidental loss of important information.
+
+Instead of permanently deleting students or courses, the school could mark them as inactive when they are no longer in use.
+
+Foreign key constraints help maintain referential integrity by preventing orphaned enrolment records.
+
+## 5. SQL or NoSQL?
 
 I chose SQL because a school database contains structured information and clear relationships between students, courses, and enrolments.
 
 SQL supports primary keys, foreign keys, unique constraints, and JOIN queries. These features help maintain accurate and consistent data.
+
+SQL transactions also help ensure that related database changes are completed reliably.
 
 SQLite is suitable for this project because it is lightweight, simple to use, and supports relational database operations.
